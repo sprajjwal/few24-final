@@ -68,7 +68,7 @@ function Bands() {
               </View>
               <View style={styles.listItemRow}>
                 <Text style={styles.numbers}>{item.formed}</Text>
-                <Text style={styles.numbers} >{item.fans * 1000}</Text>
+                <Text style={styles.numbers} >{(item.fans * 1000).toLocaleString()}</Text>
               </View>
             </View>
           )
@@ -92,12 +92,12 @@ function Stats() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.statsHeader}>METAL</Text>
-      <Text style={styles.statsData}>Count: {data.length}</Text>
-      <Text style={styles.statsData}>Fans: {fans * 1000}</Text>
-      <Text style={styles.statsData}>Countries: {Object.keys(countries).length}</Text>
-      <Text style={styles.statsData}>Active: {active}</Text>
-      <Text style={styles.statsData}>Split: {split}</Text>
+      <Text style={styles.statsHeader}>METAL🤘</Text>
+      <Text style={styles.statsData}>Count: <Text style={styles.value}>{data.length}</Text></Text>
+      <Text style={styles.statsData}>Fans: <Text style={styles.value}>{(fans * 1000).toLocaleString()}</Text></Text>
+      <Text style={styles.statsData}>Countries: <Text style={styles.value}>{Object.keys(countries).length}</Text></Text>
+      <Text style={styles.statsData}>Active: <Text style={styles.value}>{active}</Text></Text>
+      <Text style={styles.statsData}>Split: <Text style={styles.value}>{split}</Text></Text>
     </View>
   )
 }
@@ -136,11 +136,13 @@ const styles = StyleSheet.create({
   band: {
     fontSize: 18,
     color: '#fff',
+    fontWeight: 'bold'
   },
   bandSplit: {
     fontSize: 18,
     textDecorationLine: 'line-through',
     color: '#666',
+    fontWeight: 'bold'
   },
   numbers: {
     fontSize: 18,
@@ -150,10 +152,17 @@ const styles = StyleSheet.create({
     color: 'white',
     fontSize: 40,
     margin: 4,
+    fontWeight: 'bold',
+  },
+  value: {
+    color: 'white',
+    fontSize: 26,
+    fontWeight: '300'
   },
   statsData: {
     margin: 4,
     color: 'white',
+    fontWeight: 'bold',
     fontSize: 26,
   }
 });
